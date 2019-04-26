@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="reachgoal" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="reachgoal"
+       version="1.0">
+
+    <object class="ReachgoalGoals" table="reachgoal_goals" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="service" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="service_id" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="type" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="goal_name" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+    </object>
+</model>
