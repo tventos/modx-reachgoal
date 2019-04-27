@@ -14,9 +14,9 @@ Reachgoal.panel.Home = function (config) {
                 },{
                     xtype: 'panel',
                     cls: 'container',
-                    items: [/*{
-                        xtype: 'seodomains-grid-city'
-                    }*/]
+                    items: [{
+                        xtype: 'reachgoal-grid-goals'
+                    }]
                 }]
             }]
         }]

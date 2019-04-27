@@ -30,10 +30,10 @@ class ReachgoalHomeManagerController extends modExtraManagerController {
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/utils/utils.js?v='.$this->Reachgoal->config['version']);
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/sections/home.js?v='.$this->Reachgoal->config['version']);
         
-        /*
+        
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/widgets/goals.grid.js?v='.$this->Reachgoal->config['version']);
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/widgets/goals.windows.js?v='.$this->Reachgoal->config['version']);
-        */
+       
         $this->addHtml('<script>
             Ext.onReady(function() {
                 Reachgoal.config.connector_url = "' . $this->Reachgoal->config['connectorUrl'] . '";

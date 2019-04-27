@@ -19,7 +19,7 @@ return [
     'update' => [
         'chunks' => false,
         'menus' => true,
-        'plugins' => false,
+        'plugins' => true,
         'resources' => false,
         'settings' => false,
         'snippets' => false,

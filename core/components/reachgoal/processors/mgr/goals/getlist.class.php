@@ -16,6 +16,7 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
             $c->where(array(
                 'name:LIKE' => "%{$query}%",
                 'OR:goal_name:LIKE' => "%{$query}%",
+                'OR:service_id:LIKE' => "%{$query}%"
             ));
         }
 
@@ -30,11 +31,14 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
     public function prepareRow(xPDOObject $object) {
         $array = $object->toArray();
         
+        $array['service'] = $this->modx->Reachgoal->getServiceName($array['service']);
+        $array['event'] = $this->modx->Reachgoal->getTypeName($array['event']);
+        
         $array['actions'] = [];
 
         // Edit
         $array['actions'][] = [
-            'cls' => 'seodomains-update',
+            'cls' => 'reachgoal-update',
             'icon' => 'icon icon-edit',
             'title' => $this->modx->lexicon('update'),
             //'multiple' => $this->modx->lexicon('view'),
@@ -45,7 +49,7 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
 
         // Remove
         $array['actions'][] = [
-            'cls' => 'seodomains-remove',
+            'cls' => 'reachgoal-remove',
             'icon' => 'icon icon-trash-o action-red',
             'title' => $this->modx->lexicon('remove'),
             'multiple' => $this->modx->lexicon('remove'),

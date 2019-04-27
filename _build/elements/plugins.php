@@ -5,7 +5,7 @@ return [
         'file' => 'ReachGoal',
         'description' => '',
         'events' => [
-            'OnHandleRequest' => [],
+            'OnLoadWebDocument' => [],
         ],
     ],
 ];

@@ -5,20 +5,20 @@
     min-width: 26px;
     cursor: pointer;
 }
-.reachgoal-btn-btn-default {
+.reachgoal-btn-default {
     background: #fff;
     border: 1px solid #d0d0d0;
 }
-.reachgoal-btn-btn-default:hover {
+.reachgoal-btn-default:hover {
     background: #ececec;
 }
-.reachgoal-btn-row-actions {
+.reachgoal-row-actions {
     display: inline-block;
 }
-.reachgoal-btn-row-actions li {
+.reachgoal-row-actions li {
     display: inline-block;
 }
-.reachgoal-btn-btn-default.action-red {
+.reachgoal-btn-default.action-red {
     color:red;
 }
 .x-menu-list-item .icon {
