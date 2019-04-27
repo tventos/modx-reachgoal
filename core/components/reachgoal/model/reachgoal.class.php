@@ -39,7 +39,8 @@ class Reachgoal
     
     private function types() {
         return [
-            'AddCart' => $this->modx->lexicon('reachgoal_types_addcart'),
+            'AddProduct' => $this->modx->lexicon('reachgoal_types_addproduct'),
+            'RemoveProduct' => $this->modx->lexicon('reachgoal_types_removeproduct'),
             'Order' => $this->modx->lexicon('reachgoal_types_order'),
             'AjaxForm' => $this->modx->lexicon('reachgoal_types_ajaxform')
         ];

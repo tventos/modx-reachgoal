@@ -52,7 +52,7 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
         ]
     },
     getFields: function () {
-        return ['id','name','service','service_id','event','goal_name','actions'];
+        return ['id','event','form_id','service','service_id','goal_name','actions'];
     },
     getTbar: function (config) {
         return [{

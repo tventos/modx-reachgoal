@@ -32,7 +32,6 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
         $array = $object->toArray();
         
         $array['service'] = $this->modx->Reachgoal->getServiceName($array['service']);
-        
         $array['event'] = $this->modx->Reachgoal->getTypeName($array['event']);
         
         $array['actions'] = [];

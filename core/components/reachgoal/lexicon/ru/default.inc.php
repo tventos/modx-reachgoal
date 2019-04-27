@@ -10,9 +10,10 @@ $_lang['reachgoal_goals_grid_search_empty'] = 'Поиск';
 $_lang['reachgoal_service_metrika'] = 'Яндекс.Метрика';
 $_lang['reachgoal_service_gtag'] = 'Google Tag Manager';
 
-$_lang['reachgoal_types_addcart'] = 'Добавление в корзину';
+$_lang['reachgoal_types_addproduct'] = 'Добавление в корзину';
+$_lang['reachgoal_types_removeproduct'] = 'Удаление из корзины';
 $_lang['reachgoal_types_order'] = 'Оформление заказа';
-$_lang['reachgoal_types_ajaxform'] = 'AjaxForm';
+$_lang['reachgoal_types_ajaxform'] = 'Отправка формы';
 
 $_lang['reachgoal_goals_grid_service'] = 'Сервис';
 $_lang['reachgoal_goals_grid_form_id'] = 'Форма';
