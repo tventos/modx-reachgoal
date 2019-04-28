@@ -8,11 +8,10 @@ Reachgoal.window.Goals = function (config) {
         action: 'mgr/goals/create',
         saveBtnText:_('add'),
         fields: [{
-            xtype: 'textfield',
+            xtype: 'reachgoal-combo-list',
+            action: 'mgr/goals/events',
             name: 'event',
-            fieldLabel: _('reachgoal_goals_grid_event'),
-            anchor: '99%',
-            allowBlank: false
+            fieldLabel: _('reachgoal_goals_grid_event')
         },{
             xtype: 'textfield',
             name: 'form_id',
@@ -20,11 +19,10 @@ Reachgoal.window.Goals = function (config) {
             anchor: '99%',
             allowBlank: true
         },{
-            xtype: 'textfield',
+            xtype: 'reachgoal-combo-list',
+            action: 'mgr/goals/services',
             name: 'service',
-            fieldLabel: _('reachgoal_goals_grid_service'),
-            anchor: '99%',
-            allowBlank: false
+            fieldLabel: _('reachgoal_goals_grid_service')
         },{
             xtype: 'textfield',
             name: 'service_id',
@@ -66,11 +64,10 @@ Ext.extend(Reachgoal.window.UpdateGoals, MODx.Window, {
             name: 'id',
             id: config.id + '-id',
         },{
-            xtype: 'textfield',
+            xtype: 'reachgoal-combo-list',
+            action: 'mgr/goals/events',
             name: 'event',
-            fieldLabel: _('reachgoal_goals_grid_event'),
-            anchor: '99%',
-            allowBlank: false
+            fieldLabel: _('reachgoal_goals_grid_event')
         },{
             xtype: 'textfield',
             name: 'form_id',
@@ -78,11 +75,10 @@ Ext.extend(Reachgoal.window.UpdateGoals, MODx.Window, {
             anchor: '99%',
             allowBlank: true
         },{
-            xtype: 'textfield',
+            xtype: 'reachgoal-combo-list',
+            action: 'mgr/goals/services',
             name: 'service',
-            fieldLabel: _('reachgoal_goals_grid_service'),
-            anchor: '99%',
-            allowBlank: false
+            fieldLabel: _('reachgoal_goals_grid_service')
         },{
             xtype: 'textfield',
             name: 'service_id',

@@ -9,8 +9,10 @@ $modx->getService('Reachgoal', 'Reachgoal', MODX_CORE_PATH . 'components/reachgo
 /* Register Javascript */
 $modx->regClientScript(MODX_ASSETS_URL . 'components/reachgoal/js/web/default.js');
 
+/* Get goals */
 $goals = $pdo->getCollection('ReachgoalGoals');
 
+/* Parse goals to array */
 foreach ($goals as $goal) {
     $goals_list[$goal['event']][] = [
         'service' => $goal['service'],
@@ -19,7 +21,7 @@ foreach ($goals as $goal) {
     ];
 }
 
-
+/* Output goals in JSON */
 $modx->regClientHTMLBlock('
 <script>
     Reachgoal.list = '. json_encode($goals_list) .'
