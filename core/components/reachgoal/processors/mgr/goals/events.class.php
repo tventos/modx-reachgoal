@@ -4,20 +4,20 @@ class ReachgoalsGoalsEventsProcessor extends modProcessor {
     public function process() {
         return $this->outputArray([
             [
-                'value' => 'AddProduct',
-                'name' => $this->modx->Reachgoal->getTypeName('AddProduct')
+                'label' => $this->modx->Reachgoal->getTypeName('AddProduct'),
+                'value' => 'AddProduct'
             ],
             [
-                'value' => 'RemoveProduct',
-                'name' => $this->modx->Reachgoal->getTypeName('RemoveProduct')
+                'label' => $this->modx->Reachgoal->getTypeName('RemoveProduct'),
+                'value' => 'RemoveProduct'
             ],
             [
-                'value' => 'Order',
-                'name' => $this->modx->Reachgoal->getTypeName('Order')
+                'label' => $this->modx->Reachgoal->getTypeName('Order'),
+                'value' => 'Order'
             ],
             [
-                'value' => 'AjaxForm',
-                'name' => $this->modx->Reachgoal->getTypeName('AjaxForm')
+                'label' => $this->modx->Reachgoal->getTypeName('AjaxForm'),
+                'value' => 'AjaxForm'
             ]
         ]);
     }

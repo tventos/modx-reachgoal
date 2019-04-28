@@ -4,12 +4,12 @@ class ReachgoalsGoalsServicesProcessor extends modProcessor {
     public function process() {
         return $this->outputArray([
             [
-                'value' => 'metrika',
-                'name' => $this->modx->Reachgoal->getServiceName('metrika')
+                'label' => $this->modx->Reachgoal->getServiceName('metrika'),
+                'value' => 'metrika'
             ],
             [
-                'value' => 'gtag',
-                'name' => $this->modx->Reachgoal->getServiceName('gtag')
+                'label' => $this->modx->Reachgoal->getServiceName('gtag'),
+                'value' => 'gtag'
             ]
         ]);
     }

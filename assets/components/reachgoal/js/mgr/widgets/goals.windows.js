@@ -4,14 +4,24 @@ Reachgoal.window.Goals = function (config) {
     Ext.applyIf(config, {
         title: _('add'),
         url: Reachgoal.config.connector_url,
-        width:800,
+        width: 800,
         action: 'mgr/goals/create',
         saveBtnText:_('add'),
         fields: [{
+            xtype: 'hidden',
+            name: 'id'
+        },{
             xtype: 'reachgoal-combo-list',
             action: 'mgr/goals/events',
             name: 'event',
-            fieldLabel: _('reachgoal_goals_grid_event')
+            fieldLabel: _('reachgoal_goals_grid_event'), 
+            listeners: {
+                select: {
+                    fn: function () {
+                        //this.checkEvent(config);
+                    }, scope: this
+                }
+            }
         },{
             xtype: 'textfield',
             name: 'form_id',
@@ -45,57 +55,13 @@ Ext.reg('reachgoal-window-goals', Reachgoal.window.Goals);
 Reachgoal.window.UpdateGoals = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'reachgoal-window-goals';
+        config.id = 'reachgoal-window-update';
     }
     Ext.applyIf(config, {
         title: _('update'),
-        autoHeight: true,
-        fields: this.getFields(config),
-        url: Reachgoal.config.connector_url,
         action: 'mgr/goals/update',
-        width: 800
     });
-    Reachgoal.window.UpdateGoals.superclass.constructor.call(this, config);            
+    Reachgoal.window.UpdateGoals.superclass.constructor.call(this, config);
 };
-Ext.extend(Reachgoal.window.UpdateGoals, MODx.Window, {
-    getFields: function (config) {
-        return [{
-            xtype: 'hidden',
-            name: 'id',
-            id: config.id + '-id',
-        },{
-            xtype: 'reachgoal-combo-list',
-            action: 'mgr/goals/events',
-            name: 'event',
-            fieldLabel: _('reachgoal_goals_grid_event')
-        },{
-            xtype: 'textfield',
-            name: 'form_id',
-            fieldLabel: _('reachgoal_goals_grid_form_id'),
-            anchor: '99%',
-            allowBlank: true
-        },{
-            xtype: 'reachgoal-combo-list',
-            action: 'mgr/goals/services',
-            name: 'service',
-            fieldLabel: _('reachgoal_goals_grid_service')
-        },{
-            xtype: 'textfield',
-            name: 'service_id',
-            fieldLabel: _('reachgoal_goals_grid_service_id'),
-            anchor: '99%',
-            allowBlank: false
-        },{
-            xtype: 'textfield',
-            name: 'goal_name',
-            fieldLabel: _('reachgoal_goals_grid_goal_name'),
-            anchor: '99%',
-            allowBlank: false
-        }]
-    },
-
-    loadDropZones: function () {
-    }
-
-});
+Ext.extend(Reachgoal.window.UpdateGoals, Reachgoal.window.Goals, {});
 Ext.reg('reachgoal-goals-window-update', Reachgoal.window.UpdateGoals);
