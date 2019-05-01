@@ -11,6 +11,10 @@ var Reachgoal = {
                 ym(service_id, 'reachGoal', goal_name);
             break;
             
+            case 'ga': 
+                console.log('Ga triggered: '+ goal_name);
+            break;
+            
             case 'gtag': 
                 console.log('Gtag triggered: '+ goal_name);
             break;
