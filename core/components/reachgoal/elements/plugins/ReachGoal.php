@@ -17,12 +17,13 @@ foreach ($goals as $goal) {
     $goals_list[$goal['event']][] = [
         'service' => $goal['service'],
         'service_id' => $goal['service_id'],
-        'goal_name' => $goal['goal_name']
+        'goal_name' => $goal['goal_name'],
+        'form_id' => $goal['form_id']
     ];
 }
 
 /* Output goals in JSON */
 $modx->regClientHTMLBlock('
 <script>
-    Reachgoal.list = '. json_encode($goals_list) .'
+    Reachgoal.initialize = '. json_encode($goals_list) .'
 </script>');

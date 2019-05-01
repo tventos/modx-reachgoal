@@ -38,7 +38,7 @@ Reachgoal.window.Goals = function (config) {
             name: 'service_id',
             fieldLabel: _('reachgoal_goals_grid_service_id'),
             anchor: '99%',
-            allowBlank: false
+            allowBlank: true
         },{
             xtype: 'textfield',
             name: 'goal_name',

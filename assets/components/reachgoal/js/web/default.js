@@ -1,5 +1,5 @@
 var Reachgoal = {
-    list: {
+    initialize: {
         AddProduct: {},
         RemoveProduct: {},
         Order: {},
@@ -9,7 +9,6 @@ var Reachgoal = {
         switch (service) {
             case 'metrika': 
                 ym(service_id, 'reachGoal', goal_name);
-                console.log('Metrika triggered: '+ service_id);
             break;
             
             case 'gtag': 
@@ -20,22 +19,33 @@ var Reachgoal = {
 }
 
 window.onload = function () {
-    /* Minishop2 events */
-    miniShop2.Callbacks.Cart.add.response.success = function() {
-        Reachgoal.list.AddProduct.forEach(function(item) {
-            Reachgoal.goal(item.service, item.service_id, item.goal_name);
-        });
-    };
-    
-    miniShop2.Callbacks.Cart.remove.response.success = function() {
-        Reachgoal.list.RemoveProduct.forEach(function(item) {
-            Reachgoal.goal(item.service, item.service_id, item.goal_name);
-        });
-    };
-    
-    miniShop2.Callbacks.Order.submit.response.success = function() {
-        Reachgoal.list.Order.forEach(function(item) {
-            Reachgoal.goal(item.service, item.service_id, item.goal_name);
-        });
+    if (typeof miniShop2 != 'undefined') {
+        miniShop2.Callbacks.Cart.add.response.success = function() {
+            Reachgoal.initialize.AddProduct.forEach(function(item) {
+                Reachgoal.goal(item.service, item.service_id, item.goal_name);
+            });
+        };
+
+        miniShop2.Callbacks.Cart.remove.response.success = function() {
+            Reachgoal.initialize.RemoveProduct.forEach(function(item) {
+                Reachgoal.goal(item.service, item.service_id, item.goal_name);
+            });
+        };
+
+        miniShop2.Callbacks.Order.submit.response.success = function() {
+            Reachgoal.initialize.Order.forEach(function(item) {
+                Reachgoal.goal(item.service, item.service_id, item.goal_name);
+            });
+        }
     }
+
+    $(document).on('af_complete', function(event, response) {
+        if (response.success) {
+            Reachgoal.initialize.AjaxForm.forEach(function(item) {
+                if (response.form.attr('id') == item.form_id) {
+                    Reachgoal.goal(item.service, item.service_id, item.goal_name);
+                }
+            });
+        }
+    });
 };
