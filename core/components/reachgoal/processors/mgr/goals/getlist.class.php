@@ -31,6 +31,10 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
     public function prepareRow(xPDOObject $object) {
         $array = $object->toArray();
         
+        if ($array['service'] == 'metrika' && empty($array['service_id'])) {
+            $array['service_id'] = $this->modx->getOption('reachgoal_yacounter_default');
+        }
+        
         $array['service'] = $this->modx->Reachgoal->getServiceName($array['service']);
         $array['event'] = $this->modx->Reachgoal->getTypeName($array['event']);
         
