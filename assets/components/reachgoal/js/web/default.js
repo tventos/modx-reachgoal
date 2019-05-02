@@ -8,7 +8,12 @@ var Reachgoal = {
     goal: function (service, service_id, goal_name) {
         switch (service) {
             case 'metrika': 
-                ym(service_id, 'reachGoal', goal_name);
+                if (typeof ym != 'undefined') {
+                    ym(service_id, 'reachGoal', goal_name);
+                } else {
+                    window['yaCounter' + service_id].reachGoal(goal_name);
+                }
+                
             break;
             
             case 'ga': 
