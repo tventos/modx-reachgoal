@@ -15,7 +15,8 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
         if ($query) {
             $c->where(array(
                 'goal_name:LIKE' => "%{$query}%",
-                'OR:service_id:LIKE' => "%{$query}%"
+                'OR:service_id:LIKE' => "%{$query}%",
+                'OR:form_id:LIKE' => "%{$query}%"
             ));
         }
 

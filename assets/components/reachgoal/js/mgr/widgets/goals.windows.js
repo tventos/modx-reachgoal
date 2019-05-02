@@ -11,6 +11,7 @@ Reachgoal.window.Goals = function (config) {
         autoHeight: true,
         action: 'mgr/goals/create',
         modal: true,
+        submitEmptyText: false,
         saveBtnText:_('add'),
         fields: this.getFields(config),
         keys: [{
@@ -20,6 +21,10 @@ Reachgoal.window.Goals = function (config) {
         }]
     });
     Reachgoal.window.Goals.superclass.constructor.call(this, config);
+    this.on('show', function () {
+        this.checkEvent(config, true);
+        this.checkService(config, true);
+    });
 };
 Ext.extend(Reachgoal.window.Goals, MODx.Window, {
     getFields: function (config) {
@@ -40,16 +45,25 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
             },
             form_id: {
                 xtype: 'textfield',
-                allowBlank: true
+                allowBlank: true,
+                emptyText: _('reachgoal_goals_grid_empty_form_id'),
             },
             service: {
                 xtype: 'reachgoal-combo-list',
                 action: 'mgr/goals/services',
-                allowBlank: false
+                allowBlank: false,
+                listeners: {
+                    select: {
+                        fn: function () {
+                            this.checkService(config);
+                        }, scope: this
+                    }
+                }
             },
             service_id: {
                 xtype: 'textfield',
-                allowBlank: true
+                allowBlank: true,
+                emptyText: _('reachgoal_goals_grid_empty_service_id'),
             },
             goal_name: {
                 xtype: 'textfield',
@@ -72,7 +86,43 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
     },
     checkEvent: function (config, firstload) {
         var event = Ext.getCmp(config.id + '-event').getValue();
-        console.log(event);
+        
+        if (firstload) {
+            if (event != 'AjaxForm') {
+                this.hideField(Ext.getCmp(config.id + '-form_id'));
+            }
+            
+            return false;
+        }
+        
+        if (event == 'AjaxForm') {
+            this.showField(Ext.getCmp(config.id + '-form_id'));
+        } else {
+            this.hideField(Ext.getCmp(config.id + '-form_id'));
+        }
+        
+        Ext.getCmp(config.id + '-form_id').reset();
+        Ext.getCmp(config.id + '-form_id').getStore().load();
+    },
+    checkService: function (config, firstload) {
+        var service = Ext.getCmp(config.id + '-service').getValue();
+        
+        if (firstload) {
+            if (service != 'metrika') {
+                this.hideField(Ext.getCmp(config.id + '-service_id'));
+            }
+            
+            return false;
+        }
+        
+        if (service == 'metrika') {
+            this.showField(Ext.getCmp(config.id + '-service_id'));
+        } else {
+            this.hideField(Ext.getCmp(config.id + '-service_id'));
+        }
+        
+        Ext.getCmp(config.id + '-form_id').reset();
+        Ext.getCmp(config.id + '-form_id').getStore().load();
     }
 });
 Ext.reg('reachgoal-goals-window-create', Reachgoal.window.Goals);

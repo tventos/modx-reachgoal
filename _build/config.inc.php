@@ -21,7 +21,7 @@ return [
         'menus' => true,
         'plugins' => true,
         'resources' => false,
-        'settings' => false,
+        'settings' => true,
         'snippets' => false,
         'templates' => false,
         'widgets' => false,
