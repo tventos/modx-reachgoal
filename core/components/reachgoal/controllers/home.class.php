@@ -28,6 +28,7 @@ class ReachgoalHomeManagerController extends modExtraManagerController {
         $this->addCss($this->Reachgoal->config['cssUrl'] . 'mgr/reachgoal.css?v='.$this->Reachgoal->config['version']);
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/reachgoal.js?v='.$this->Reachgoal->config['version']);
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/utils/utils.js?v='.$this->Reachgoal->config['version']);
+        $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/utils/combo.js?v='.$this->Reachgoal->config['version']);
         $this->addJavascript($this->Reachgoal->config['jsUrl'] . 'mgr/sections/home.js?v='.$this->Reachgoal->config['version']);
         
         

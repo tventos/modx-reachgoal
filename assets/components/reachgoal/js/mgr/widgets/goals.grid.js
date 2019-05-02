@@ -54,23 +54,31 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
     getFields: function () {
         return ['id','event','form_id','service','service_id','goal_name','actions'];
     },
+    createItem: function (btn, e) {
+        var id = 'reachgoal-goals-window-create';
+        var w = Ext.getCmp(id);
+        if (w) {
+            w.close();
+        }
+        w = MODx.load({
+            xtype: id,
+            id: id,
+            listeners: {
+                success: {
+                    fn: function () {
+                        this.refresh();
+                    }, scope: this
+                }
+            }
+        });
+        w.reset();
+        w.setValues({});
+        w.show(e.target);
+    },
     getTbar: function (config) {
         return [{
             text: '<i class="icon icon-plus"></i>&nbsp;' + _('add'),
-            handler: function () {
-                var w = MODx.load({ 
-                    xtype: 'reachgoal-window-goals',
-                    listeners: {
-                        success: {
-                            fn: function () {
-                                this.refresh();
-                            }, scope: this
-                        }
-                    }
-                });
-                w.setValues({active: true});
-                w.show();
-            },
+            handler: this.createItem,
             scope: this
         }, '->',  {
             xtype: 'textfield',
