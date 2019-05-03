@@ -9,8 +9,8 @@ $_lang['reachgoal_panel_main_desc'] = 'Тут отображается спис�
 $_lang['reachgoal_goals_grid_search_empty'] = 'Поиск';
 
 $_lang['reachgoal_service_metrika'] = 'Яндекс.Метрика';
-$_lang['reachgoal_service_ga'] = 'Google Analytics';
-$_lang['reachgoal_service_gtag'] = 'Google Tag Manager';
+$_lang['reachgoal_service_gtag'] = 'Global Site Tag';
+$_lang['reachgoal_service_gtm'] = 'Google Tag Manager';
 
 $_lang['reachgoal_types_addproduct'] = 'Добавление в корзину';
 $_lang['reachgoal_types_removeproduct'] = 'Удаление из корзины';

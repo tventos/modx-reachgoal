@@ -102,7 +102,6 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
         }
         
         Ext.getCmp(config.id + '-form_id').reset();
-        Ext.getCmp(config.id + '-form_id').getStore().load();
     },
     checkService: function (config, firstload) {
         var service = Ext.getCmp(config.id + '-service').getValue();
@@ -122,7 +121,6 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
         }
         
         Ext.getCmp(config.id + '-form_id').reset();
-        Ext.getCmp(config.id + '-form_id').getStore().load();
     }
 });
 Ext.reg('reachgoal-goals-window-create', Reachgoal.window.Goals);

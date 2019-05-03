@@ -33,8 +33,8 @@ class Reachgoal
     private function services() {
         return [
             'metrika' => $this->modx->lexicon('reachgoal_service_metrika'),
-            'ga' => $this->modx->lexicon('reachgoal_service_ga'),
             'gtag' => $this->modx->lexicon('reachgoal_service_gtag'),
+            'gtm' => $this->modx->lexicon('reachgoal_service_gtm'),
         ];
     }
     

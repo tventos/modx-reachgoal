@@ -16,12 +16,12 @@ var Reachgoal = {
                 
             break;
             
-            case 'ga': 
-                console.log('Ga triggered: '+ goal_name);
-            break;
-            
             case 'gtag': 
                 console.log('Gtag triggered: '+ goal_name);
+            break;
+            
+            case 'gtm': 
+                console.log('Gtm triggered: '+ goal_name);
             break;
         }
     }
