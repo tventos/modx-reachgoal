@@ -7,9 +7,7 @@ class ReachgoalGoalsUpdateProcessor extends modObjectUpdateProcessor {
      */
     public function beforeSet() {
         if ($this->getProperty('service') == 'metrika' && empty($this->getProperty('service_id'))) {
-            if ($yacounterDefault = $this->modx->getOption('reachgoal_yacounter_default')) {
-                $this->setProperty('service_id', $yacounterDefault);
-            } else {
+            if (!$yacounterDefault = $this->modx->getOption('reachgoal_yacounter_default')) {
                 $this->modx->error->addField('service_id', $this->modx->lexicon('reachgoal_err_service_id_null'));
             }
         }

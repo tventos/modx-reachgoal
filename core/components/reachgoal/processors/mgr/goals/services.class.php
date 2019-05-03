@@ -8,12 +8,12 @@ class ReachgoalsGoalsServicesProcessor extends modProcessor {
                 'value' => 'metrika'
             ],
             [
-                'label' => $this->modx->Reachgoal->getServiceName('ga'),
-                'value' => 'ga'
-            ],
-            [
                 'label' => $this->modx->Reachgoal->getServiceName('gtag'),
                 'value' => 'gtag'
+            ],
+            [
+                'label' => $this->modx->Reachgoal->getServiceName('gtm'),
+                'value' => 'gtm'
             ]
         ]);
     }

@@ -16,7 +16,9 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
             $c->where(array(
                 'goal_name:LIKE' => "%{$query}%",
                 'OR:service_id:LIKE' => "%{$query}%",
-                'OR:form_id:LIKE' => "%{$query}%"
+                'OR:form_id:LIKE' => "%{$query}%",
+                'OR:service:LIKE' => "%{$query}%",
+                'OR:event:LIKE' => "%{$query}%"
             ));
         }
 
@@ -30,6 +32,10 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
      */
     public function prepareRow(xPDOObject $object) {
         $array = $object->toArray();
+        
+        if ($array['service'] == 'metrika' && empty($array['service_id'])) {
+            $array['service_id'] = $this->modx->getOption('reachgoal_yacounter_default');
+        }
         
         $array['service'] = $this->modx->Reachgoal->getServiceName($array['service']);
         $array['event'] = $this->modx->Reachgoal->getTypeName($array['event']);

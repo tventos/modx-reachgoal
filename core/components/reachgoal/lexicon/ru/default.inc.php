@@ -9,8 +9,8 @@ $_lang['reachgoal_panel_main_desc'] = 'Тут отображается спис�
 $_lang['reachgoal_goals_grid_search_empty'] = 'Поиск';
 
 $_lang['reachgoal_service_metrika'] = 'Яндекс.Метрика';
-$_lang['reachgoal_service_ga'] = 'Google Analytics';
-$_lang['reachgoal_service_gtag'] = 'Google Tag Manager';
+$_lang['reachgoal_service_gtag'] = 'Global Site Tag';
+$_lang['reachgoal_service_gtm'] = 'Google Tag Manager';
 
 $_lang['reachgoal_types_addproduct'] = 'Добавление в корзину';
 $_lang['reachgoal_types_removeproduct'] = 'Удаление из корзины';
@@ -25,4 +25,5 @@ $_lang['reachgoal_goals_grid_service_id'] = 'Номер счетчика';
 $_lang['reachgoal_goals_grid_empty_service_id'] = 'По умолчанию будет использоваться Системная настройка reachgoal_yacounter_default';
 $_lang['reachgoal_err_service_id_null'] = 'Заполните <b>Номер счетчика</b>!';
 $_lang['reachgoal_goals_grid_event'] = 'Событие';
-$_lang['reachgoal_goals_grid_goal_name'] = 'Идентификатор цели';
+$_lang['reachgoal_goals_grid_goal_name'] = 'Цель / Действие';
+$_lang['reachgoal_goals_grid_goal_category'] = 'Категория';

@@ -46,7 +46,7 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
             {dataIndex: 'event', sortable: true, width: 160, header: _('reachgoal_goals_grid_event')},
             {dataIndex: 'form_id', sortable: true, width: 160, header: _('reachgoal_goals_grid_form_id')},
             {dataIndex: 'service', sortable: true, width: 150, header: _('reachgoal_goals_grid_service')},
-            {dataIndex: 'service_id', sortable: true, width: 140, header: _('reachgoal_goals_grid_service_id')},
+            {dataIndex: 'service_id', sortable: true, width: 140, header: _('reachgoal_goals_grid_service_id'), hidden: true},
             {dataIndex: 'goal_name', sortable: true, width: 150, header: _('reachgoal_goals_grid_goal_name')},
             {dataIndex: 'actions', width: 100, header: _('actions'), renderer: Reachgoal.utils.renderActions, sortable: false, id: 'actions'}
         ]

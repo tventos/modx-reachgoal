@@ -28,7 +28,6 @@ Reachgoal.window.Goals = function (config) {
 };
 Ext.extend(Reachgoal.window.Goals, MODx.Window, {
     getFields: function (config) {
-        var type = config.record && config.record.type ? config.record.type : 0;
         var fields = {
             id: {xtype: 'hidden'},
             event: {
@@ -68,6 +67,10 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
             goal_name: {
                 xtype: 'textfield',
                 allowBlank: false
+            },
+            goal_category: {
+                xtype: 'textfield',
+                allowBlank: true
             }
         };
         var data = [];
@@ -102,7 +105,6 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
         }
         
         Ext.getCmp(config.id + '-form_id').reset();
-        Ext.getCmp(config.id + '-form_id').getStore().load();
     },
     checkService: function (config, firstload) {
         var service = Ext.getCmp(config.id + '-service').getValue();
@@ -112,17 +114,22 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
                 this.hideField(Ext.getCmp(config.id + '-service_id'));
             }
             
+            if (!service || service == 'metrika') {
+                this.hideField(Ext.getCmp(config.id + '-goal_category'));
+            }
+            
             return false;
         }
         
         if (service == 'metrika') {
             this.showField(Ext.getCmp(config.id + '-service_id'));
+            this.hideField(Ext.getCmp(config.id + '-goal_category'));
         } else {
             this.hideField(Ext.getCmp(config.id + '-service_id'));
+            this.showField(Ext.getCmp(config.id + '-goal_category'));
         }
         
-        Ext.getCmp(config.id + '-form_id').reset();
-        Ext.getCmp(config.id + '-form_id').getStore().load();
+        Ext.getCmp(config.id + '-service_id').reset();
     }
 });
 Ext.reg('reachgoal-goals-window-create', Reachgoal.window.Goals);
