@@ -25,4 +25,5 @@ $_lang['reachgoal_goals_grid_service_id'] = 'Номер счетчика';
 $_lang['reachgoal_goals_grid_empty_service_id'] = 'По умолчанию будет использоваться Системная настройка reachgoal_yacounter_default';
 $_lang['reachgoal_err_service_id_null'] = 'Заполните <b>Номер счетчика</b>!';
 $_lang['reachgoal_goals_grid_event'] = 'Событие';
-$_lang['reachgoal_goals_grid_goal_name'] = 'Идентификатор цели';
+$_lang['reachgoal_goals_grid_goal_name'] = 'Цель / Действие';
+$_lang['reachgoal_goals_grid_goal_category'] = 'Категория';

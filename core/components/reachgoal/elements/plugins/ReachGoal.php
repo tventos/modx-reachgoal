@@ -18,6 +18,7 @@ foreach ($goals as $goal) {
         'service' => $goal['service'],
         'service_id' => $goal['service_id'] ?:$modx->getOption('reachgoal_yacounter_default'),
         'goal_name' => $goal['goal_name'],
+        'goal_category' => $goal['goal_category'],
         'form_id' => $goal['form_id']
     ];
 }
