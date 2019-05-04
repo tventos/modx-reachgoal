@@ -20,8 +20,6 @@
 
 [![](https://file.modx.pro/files/0/8/b/08b1fb694ad2bcceaae9ee6a29fcf815.png)](https://file.modx.pro/files/0/8/b/08b1fb694ad2bcceaae9ee6a29fcf815.png)
 
-<a href="https://file.modx.pro/files/0/8/b/08b1fb694ad2bcceaae9ee6a29fcf815.png" rel="fancybox"><img src="https://file.modx.pro/files/0/8/b/08b1fb694ad2bcceaae9ee6a29fcf815.png" class="fancybox thumbnail center"></a>
-
 Получиться примерно так:
 
 [![](https://file.modx.pro/files/7/e/c/7eca53a10577657148fff74f2fd0ca3a.png)](https://file.modx.pro/files/7/e/c/7eca53a10577657148fff74f2fd0ca3a.png)
