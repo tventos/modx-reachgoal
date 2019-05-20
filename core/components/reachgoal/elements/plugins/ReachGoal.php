@@ -24,7 +24,9 @@ foreach ($goals as $goal) {
 }
 
 /* Output goals in JSON */
-$modx->regClientHTMLBlock('
-<script>
-    Reachgoal.initialize = '. json_encode($goals_list) .'
-</script>');
+if ($goals_list) {
+    $modx->regClientHTMLBlock('
+    <script>
+        Reachgoal.initialize = '. json_encode($goals_list) .'
+    </script>');
+}
