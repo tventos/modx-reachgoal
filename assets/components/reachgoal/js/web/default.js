@@ -38,26 +38,32 @@ var Reachgoal = {
 window.onload = function () {
     if (typeof miniShop2 != 'undefined') {
         miniShop2.Callbacks.Cart.add.response.success = function() {
-            Reachgoal.initialize.AddProduct.forEach(function(item) {
-                Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
-            });
+            if (typeof Reachgoal.initialize.AddProduct != 'undefined') {
+                Reachgoal.initialize.AddProduct.forEach(function(item) {
+                    Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
+                });
+            }
         };
 
         miniShop2.Callbacks.Cart.remove.response.success = function() {
-            Reachgoal.initialize.RemoveProduct.forEach(function(item) {
-                Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
-            });
+            if (typeof Reachgoal.initialize.RemoveProduct != 'undefined') {
+                Reachgoal.initialize.RemoveProduct.forEach(function(item) {
+                    Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
+                });
+            }
         };
 
         miniShop2.Callbacks.Order.submit.response.success = function() {
-            Reachgoal.initialize.Order.forEach(function(item) {
-                Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
-            });
+            if (typeof Reachgoal.initialize.Order != 'undefined') {
+                Reachgoal.initialize.Order.forEach(function(item) {
+                    Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
+                });
+            }
         }
     }
 
     $(document).on('af_complete', function(event, response) {
-        if (response.success) {
+        if (response.success && typeof Reachgoal.initialize.AjaxForm != 'undefined') {
             Reachgoal.initialize.AjaxForm.forEach(function(item) {
                 if (response.form.attr('id') == item.form_id) {
                     Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
