@@ -19,7 +19,7 @@ class Reachgoal
             'corePath' => $corePath,
             'modelPath' => $corePath . 'model/',
             'processorsPath' => $corePath . 'processors/',
-            'version' => '1.0.1',
+            'version' => '1.0.2',
             'connectorUrl' => $assetsUrl . 'connector.php',
             'assetsUrl' => $assetsUrl,
             'cssUrl' => $assetsUrl . 'css/',
