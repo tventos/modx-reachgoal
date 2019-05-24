@@ -1,5 +1,9 @@
 Changelog for ReachGoal.
 
+1.0.2-beta
+==============
+- Added EN lexicon
+
 1.0.1-beta
 ==============
 - [fix] Added check for undefined in JS
