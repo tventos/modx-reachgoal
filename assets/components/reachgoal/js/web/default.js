@@ -4,26 +4,27 @@ var Reachgoal = {
         RemoveProduct: {},
         Order: {},
         Ajaxform: {},
+        FetchIt: [],
     },
     goal: function (service, service_id, goal_name, goal_category) {
         switch (service) {
-            case 'metrika': 
+            case 'metrika':
                 if (typeof ym != 'undefined') {
                     ym(service_id, 'reachGoal', goal_name);
                 } else {
                     window['yaCounter' + service_id].reachGoal(goal_name);
                 }
-                
+
             break;
-            
-            case 'gtag': 
+
+            case 'gtag':
                 if (goal_category) {
                     gtag('event', goal_name, {event_category: goal_category});
                 } else {
                     gtag('event', goal_name);
                 }
             break;
-            
+
             case 'gtm':
                 if (goal_category) {
                     dataLayer.push({'event': 'event-to-ga', 'eventCategory' : goal_category, 'eventAction' : goal_name});
@@ -62,13 +63,36 @@ window.onload = function () {
         }
     }
 
-    $(document).on('af_complete', function(event, response) {
-        if (response.success && typeof Reachgoal.initialize.AjaxForm != 'undefined') {
+    if (
+        (window.$ || window.jQuery)
+        && Reachgoal.initialize.Ajaxform
+    ) {
+        $(document).on('af_complete', function(event, response) {
+            if (!response.success) {
+                return;
+            }
+
             Reachgoal.initialize.AjaxForm.forEach(function(item) {
-                if (response.form.attr('id') == item.form_id) {
-                    Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
+                if (response.form.attr('id') !== item.form_id) {
+                    return;
                 }
+
+                Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
             });
-        }
-    });
+        });
+    }
 };
+
+if (Reachgoal.initialize.FetchIt) {
+    document.addEventListener('fetchit:success', ({ detail }) => {
+        const { form } = detail;
+
+        Reachgoal.initialize.FetchIt.forEach((item) => {
+            if (!form.matches(item.form_selector)) {
+                return;
+            }
+
+            Reachgoal.goal(item.service, item.service_id, item.goal_name, item.goal_category);
+        })
+    })
+}

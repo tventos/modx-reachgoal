@@ -29,7 +29,7 @@ class Reachgoal
         $this->modx->addPackage('reachgoal', $this->config['modelPath']);
         $this->modx->lexicon->load('reachgoal:default');
     }
-    
+
     private function services() {
         return [
             'metrika' => $this->modx->lexicon('reachgoal_service_metrika'),
@@ -37,25 +37,26 @@ class Reachgoal
             'gtm' => $this->modx->lexicon('reachgoal_service_gtm'),
         ];
     }
-    
+
     private function types() {
         return [
             'AddProduct' => $this->modx->lexicon('reachgoal_types_addproduct'),
             'RemoveProduct' => $this->modx->lexicon('reachgoal_types_removeproduct'),
             'Order' => $this->modx->lexicon('reachgoal_types_order'),
+            'FetchIt' => $this->modx->lexicon('reachgoal_types_fetchit'),
             'AjaxForm' => $this->modx->lexicon('reachgoal_types_ajaxform')
         ];
     }
-    
+
     public function getServiceName($service) {
         $list = $this->services();
-        
+
         return $list[$service];
     }
-    
+
     public function getTypeName($type) {
         $list = $this->types();
-        
+
         return $list[$type];
     }
 }

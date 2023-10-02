@@ -15,12 +15,16 @@ $_lang['reachgoal_service_gtm'] = 'Google Tag Manager';
 $_lang['reachgoal_types_addproduct'] = 'Add to cart';
 $_lang['reachgoal_types_removeproduct'] = 'Delete from recycle bin';
 $_lang['reachgoal_types_order'] = 'Order';
+$_lang['reachgoal_types_fetchit'] = 'Form submission (FetchIt)';
 $_lang['reachgoal_types_ajaxform'] = 'Form submission (AjaxForm)';
 
 $_lang['reachgoal_goals_grid_service'] = 'Service';
 $_lang['reachgoal_goals_grid_form_id'] = 'Form';
+$_lang['reachgoal_goals_grid_form_selector'] = 'CSS selector of forms';
 $_lang['reachgoal_err_form_id_null'] = 'Write <b>id</b> of the form!';
+$_lang['reachgoal_err_form_selector_null'] = 'Enter forms CSS selector';
 $_lang['reachgoal_goals_grid_empty_form_id'] = 'Enter the form ID (html ID attribute)';
+$_lang['reachgoal_goals_grid_empty_form_selector'] = 'Example: #my-form or .my-forms';
 $_lang['reachgoal_goals_grid_service_id'] = 'The counter number';
 $_lang['reachgoal_goals_grid_empty_service_id'] = 'Default will use the System setting reachgoal_yacounter_default';
 $_lang['reachgoal_err_service_id_null'] = 'Fill in <b>Counter number</b>!';

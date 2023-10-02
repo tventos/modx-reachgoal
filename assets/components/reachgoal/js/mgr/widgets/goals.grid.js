@@ -44,7 +44,7 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
         return [
             {dataIndex: 'id', sortable: true, width: 70, header: 'ID', hidden: true},
             {dataIndex: 'event', sortable: true, width: 160, header: _('reachgoal_goals_grid_event')},
-            {dataIndex: 'form_id', sortable: true, width: 160, header: _('reachgoal_goals_grid_form_id')},
+            {dataIndex: 'form', sortable: true, width: 160, header: _('reachgoal_goals_grid_form_id'), renderer: Reachgoal.utils.renderForm},
             {dataIndex: 'service', sortable: true, width: 150, header: _('reachgoal_goals_grid_service')},
             {dataIndex: 'service_id', sortable: true, width: 140, header: _('reachgoal_goals_grid_service_id'), hidden: true},
             {dataIndex: 'goal_name', sortable: true, width: 150, header: _('reachgoal_goals_grid_goal_name')},
@@ -52,7 +52,7 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
         ]
     },
     getFields: function () {
-        return ['id','event','form_id','service','service_id','goal_name','actions'];
+        return ['id','event','form_id','form_selector','service','service_id','goal_name','actions'];
     },
     createItem: function (btn, e) {
         var id = 'reachgoal-goals-window-create';
@@ -204,7 +204,7 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
 
         return ids;
     },
-    
+
     searchFields: ['query'],
 
     filterSend: function () {
@@ -224,5 +224,5 @@ Ext.extend(Reachgoal.grid.Goals, MODx.grid.Grid, {
         }
         this.filterSend();
     },
-}); 
+});
 Ext.reg('reachgoal-grid-goals', Reachgoal.grid.Goals);
