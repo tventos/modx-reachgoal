@@ -3,7 +3,7 @@ Reachgoal.window.Goals = function (config) {
     if (!config.id) {
         config.id = 'reachgoal-goal-create';
     }
-    
+
     Ext.applyIf(config, {
         title: _('add'),
         url: Reachgoal.config.connector_url,
@@ -31,7 +31,7 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
         var fields = {
             id: {xtype: 'hidden'},
             event: {
-                xtype: 'reachgoal-combo-list', 
+                xtype: 'reachgoal-combo-list',
                 action: 'mgr/goals/events',
                 allowBlank: false,
                 listeners: {
@@ -46,6 +46,11 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
                 xtype: 'textfield',
                 allowBlank: true,
                 emptyText: _('reachgoal_goals_grid_empty_form_id'),
+            },
+            form_selector: {
+                xtype: 'textfield',
+                allowBlank: true,
+                emptyText: _('reachgoal_goals_grid_empty_form_selector'),
             },
             service: {
                 xtype: 'reachgoal-combo-list',
@@ -88,39 +93,52 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
         return data;
     },
     checkEvent: function (config, firstload) {
-        var event = Ext.getCmp(config.id + '-event').getValue();
-        
+        const event = Ext.getCmp(config.id + '-event').getValue();
+        const formIdField = Ext.getCmp(config.id + '-form_id');
+        const formSelectorField = Ext.getCmp(config.id + '-form_selector');
+
         if (firstload) {
-            if (event != 'AjaxForm') {
-                this.hideField(Ext.getCmp(config.id + '-form_id'));
+            if (event !== 'AjaxForm') {
+                this.hideField(formIdField);
             }
-            
+
+            if (event !== 'FetchIt') {
+                this.hideField(formSelectorField);
+            }
+
             return false;
         }
-        
+
         if (event == 'AjaxForm') {
-            this.showField(Ext.getCmp(config.id + '-form_id'));
+            this.showField(formIdField);
         } else {
-            this.hideField(Ext.getCmp(config.id + '-form_id'));
+            this.hideField(formIdField);
         }
-        
-        Ext.getCmp(config.id + '-form_id').reset();
+
+        if (event === 'FetchIt') {
+            this.showField(formSelectorField);
+        } else {
+            this.hideField(formSelectorField);
+        }
+
+        formIdField.reset();
+        formSelectorField.reset();
     },
     checkService: function (config, firstload) {
         var service = Ext.getCmp(config.id + '-service').getValue();
-        
+
         if (firstload) {
             if (service != 'metrika') {
                 this.hideField(Ext.getCmp(config.id + '-service_id'));
             }
-            
+
             if (!service || service == 'metrika') {
                 this.hideField(Ext.getCmp(config.id + '-goal_category'));
             }
-            
+
             return false;
         }
-        
+
         if (service == 'metrika') {
             this.showField(Ext.getCmp(config.id + '-service_id'));
             this.hideField(Ext.getCmp(config.id + '-goal_category'));
@@ -128,7 +146,7 @@ Ext.extend(Reachgoal.window.Goals, MODx.Window, {
             this.hideField(Ext.getCmp(config.id + '-service_id'));
             this.showField(Ext.getCmp(config.id + '-goal_category'));
         }
-        
+
         Ext.getCmp(config.id + '-service_id').reset();
     }
 });

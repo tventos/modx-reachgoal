@@ -4,7 +4,7 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
     public $classKey = 'ReachgoalGoals';
     public $defaultSortField = 'id';
     public $defaultSortDirection = 'ASC';
-    
+
     /**
      * @param xPDOQuery $c
      *
@@ -17,6 +17,7 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
                 'goal_name:LIKE' => "%{$query}%",
                 'OR:service_id:LIKE' => "%{$query}%",
                 'OR:form_id:LIKE' => "%{$query}%",
+                'OR:form_selector:LIKE' => "%{$query}%",
                 'OR:service:LIKE' => "%{$query}%",
                 'OR:event:LIKE' => "%{$query}%"
             ));
@@ -24,7 +25,7 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
 
         return $c;
     }
-    
+
      /**
      * @param xPDOObject $object
      *
@@ -32,14 +33,14 @@ class ReachgoalGoalsGetListProcessor extends modObjectGetListProcessor {
      */
     public function prepareRow(xPDOObject $object) {
         $array = $object->toArray();
-        
+
         if ($array['service'] == 'metrika' && empty($array['service_id'])) {
             $array['service_id'] = $this->modx->getOption('reachgoal_yacounter_default');
         }
-        
+
         $array['service'] = $this->modx->Reachgoal->getServiceName($array['service']);
         $array['event'] = $this->modx->Reachgoal->getTypeName($array['event']);
-        
+
         $array['actions'] = [];
 
         // Edit

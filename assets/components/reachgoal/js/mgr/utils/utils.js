@@ -36,7 +36,9 @@ Reachgoal.utils.renderActions = function (value, props, row) {
     );
 };
 
-
+Reachgoal.utils.renderForm = function (value, props, row) {
+    return row.data.form_id || row.data.form_selector;
+};
 
 Reachgoal.utils.getMenu = function (actions, grid, selected) {
     var menu = [];

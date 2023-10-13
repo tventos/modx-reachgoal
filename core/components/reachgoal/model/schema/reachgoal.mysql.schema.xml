@@ -5,6 +5,7 @@
     <object class="ReachgoalGoals" table="reachgoal_goals" extends="xPDOSimpleObject">
         <field key="service" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
         <field key="form_id" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="form_selector" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
         <field key="service_id" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
         <field key="event" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
         <field key="goal_name" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>

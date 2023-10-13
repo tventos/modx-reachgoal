@@ -12,6 +12,7 @@ $xpdo_meta_map['ReachgoalGoals']= array (
   array (
     'service' => '',
     'form_id' => '',
+    'form_selector' => '',
     'service_id' => '',
     'event' => '',
     'goal_name' => '',
@@ -28,6 +29,14 @@ $xpdo_meta_map['ReachgoalGoals']= array (
       'default' => '',
     ),
     'form_id' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'form_selector' => 
     array (
       'dbtype' => 'varchar',
       'precision' => '255',
